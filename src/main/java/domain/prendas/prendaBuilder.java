@@ -16,7 +16,8 @@ public class prendaBuilder {
   }
 
   public void setMaterial(Enum<Material> material) {
-    this.material = material;
+    if(tipoPrenda.materialPosible(material)) this.material = material;
+
   }
 
   public void setColorSecundario(Color colorSecundario) {

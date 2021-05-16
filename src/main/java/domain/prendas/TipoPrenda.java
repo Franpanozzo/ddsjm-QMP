@@ -1,6 +1,5 @@
 package domain.prendas;
 
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,10 +38,10 @@ public enum TipoPrenda {
   public abstract Enum<Categoria> getCategoria();
 
   public void materialPosible(Enum<Material> material) {
-      if(!this.esPosibleMaterial(material)) throw new RuntimeException();
+      if(!this.materialPosibleSegunTipo(material)) throw new RuntimeException();
   }
 
-  protected boolean esPosibleMaterial(Enum<Material> material) {
+  public boolean materialPosibleSegunTipo(Enum<Material> material) {
     return this.materialesPermitidos().contains(material);
   }
 

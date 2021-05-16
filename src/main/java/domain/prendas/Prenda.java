@@ -23,18 +23,8 @@ public class Prenda {
     this.trama = trama;
   }
 
-    /*
-  public Prenda(Enum<TipoPrenda> tipoPrenda) {
-    this.tipoPrenda = tipoPrenda;
+  public Enum<Categoria> getCategoria(){
+    return tipoPrenda.getCategoria();
   }
 
-  public void indicarAspectos(Color color, Color colorSecundario, Material material) {
-    this.color = color;
-    tipoPrenda.materialPosible(material);
-    this.material = material;
-  }*/
-
-  //Otro consturctor con la trama opcional
-
-  //Meteodo prototype que devuelva una copia
 }
