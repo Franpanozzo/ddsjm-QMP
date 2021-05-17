@@ -10,5 +10,6 @@ public interface ClimaReciente {
 
   public abstract Integer getTemperatura();
 
+  //Aplico patron protoype para poder clonar y no llamar muchasveces a Accu y nos cobren
   public abstract ClimaReciente clone();
 }
