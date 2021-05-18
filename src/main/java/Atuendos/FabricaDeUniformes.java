@@ -2,7 +2,7 @@ package Atuendos;
 
 import domain.prendas.Prenda;
 
-public interface FabricaDeAtuendos {
+public interface FabricaDeUniformes {
   //Abstract factory en el que cada institucion tendria su propia fabrica
 
   public Prenda fabricarParteSup();

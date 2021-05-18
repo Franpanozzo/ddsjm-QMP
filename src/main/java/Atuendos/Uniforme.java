@@ -15,7 +15,7 @@ public class Uniforme {
     this.calzado = calzado;
   }
 
-  public static Uniforme fabricar(FabricaDeAtuendos fabrica) {
+  public static Uniforme fabricar(FabricaDeUniformes fabrica) {
     return new Uniforme(
         fabrica.fabricarParteSup(),
         fabrica.fabricarParteInf(),

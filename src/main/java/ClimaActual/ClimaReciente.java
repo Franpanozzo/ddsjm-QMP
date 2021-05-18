@@ -1,7 +1,4 @@
-package Sugerencias;
-
-import java.util.List;
-import java.util.Map;
+package ClimaActual;
 
 public interface ClimaReciente {
 
@@ -11,5 +8,5 @@ public interface ClimaReciente {
   public abstract Integer getTemperatura();
 
   //Aplico patron protoype para poder clonar y no llamar muchasveces a Accu y nos cobren
-  public abstract ClimaReciente clone();
+  public ClimaReciente clone();
 }

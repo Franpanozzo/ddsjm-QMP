@@ -1,10 +1,15 @@
 package Sugerencias;
 
+import ClimaActual.ClimaReciente;
+import ClimaActual.ClimaRecienteAccu;
 import domain.prendas.Prenda;
 
 public class Sugerencia {
 
+  //Puede ser que esto este abstraido en un singleton para que cada vez que se haga una sugerencia no se cree
+  //un clima Accu que gaste plata
   private static ClimaReciente climaReciente = new ClimaRecienteAccu();;
+
   private Prenda parteSuperior;
   private Prenda parteInferior;
   private Prenda calzado;
@@ -20,12 +25,8 @@ public class Sugerencia {
   public Sugerencia() {
   }
 
-  public void actualizarClima() {
-    //TODO Algoritmo para que ejecute cada 12 horas
-    climaReciente.setearClimaBSAS();
-  }
+  public static Sugerencia devolverSugerenciaAlClima(FabricaDeSugerencias sugerenciaProp) {
 
-  public static Sugerencia devolverSugerenciaAlClima(SugerenciaPropuesta sugerenciaProp) {
     sugerenciaProp.climaActual(climaReciente.clone());
     return new Sugerencia(
         sugerenciaProp.sugerirParteSup(),

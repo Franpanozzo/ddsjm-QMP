@@ -1,11 +1,11 @@
-package Sugerencias;
+package ClimaActual;
 
 import java.util.List;
 import java.util.Map;
 
 public class ClimaRecienteAccu implements ClimaReciente{
 
-  AccuWeatherAPI apiClima = new AccuWeatherAPI();
+  AccuWeatherAPI apiClima;
   List<Map<String, Object>> condicionesClimaticas;
 
 
@@ -14,7 +14,13 @@ public class ClimaRecienteAccu implements ClimaReciente{
   }
 
   public ClimaRecienteAccu() {
-    super();
+    apiClima = new AccuWeatherAPI();
+    this.actualizarClimaCada12();
+  }
+
+  private void actualizarClimaCada12() {
+    //TODO Algoritmo para que ejecute cada 12 horas y se actualize el clima
+    apiClima = new AccuWeatherAPI();
   }
 
   public void setearClimaBSAS() {

@@ -7,35 +7,69 @@ import java.util.List;
 public enum TipoPrenda {
   REMERA {
     //Cada tipo tiene una lista de que materiales se les permite
-    public Enum<Categoria> getCategoria() {
+    @Override
+    public Categoria getCategoria() {
       return Categoria.PARTESUP;
     }
 
     public List<Enum<Material>> materialesPermitidos() {
       return Arrays.asList(Material.ALGODON,Material.JEAN);
     }
+
+    @Override
+    public Integer tempTopeAdecuada() {
+      return 30;
+    }
   },
   PANTALON {
-    public Enum<Categoria> getCategoria() {
+    @Override
+    public Categoria getCategoria() {
       return Categoria.PARTEINF;
     }
 
     public List<Enum<Material>> materialesPermitidos() {
       return Arrays.asList(Material.CUERO,Material.JEAN);
     }
+
+    @Override
+    public Integer tempTopeAdecuada() {
+      return 20;
+    }
   },
   ZAPATILLA {
-    public Enum<Categoria> getCategoria() {
+    @Override
+    public Categoria getCategoria() {
       return Categoria.CALZADO;
     }
 
     public List<Enum<Material>> materialesPermitidos() {
       return Arrays.asList(Material.CUERO);
     }
+
+    @Override
+    public Integer tempTopeAdecuada() {
+      return 27;
+    }
+  },
+
+  GORRO {
+    @Override
+    public Categoria getCategoria() {
+      return Categoria.ACCESORIOS;
+    }
+
+    public List<Enum<Material>> materialesPermitidos() {
+      return Arrays.asList(Material.ALGODON);
+    }
+
+    @Override
+    public Integer tempTopeAdecuada() {
+      return 30;
+    }
   };
 
   //Cad una implementa un metodo abstracto que me devuelv la categoria
-  public abstract Enum<Categoria> getCategoria();
+  public abstract Categoria getCategoria();
 
   public void materialPosible(Enum<Material> material) {
       if(!this.materialPosibleSegunTipo(material)) throw new RuntimeException();
@@ -46,6 +80,8 @@ public enum TipoPrenda {
   }
 
   protected abstract List<Enum<Material>> materialesPermitidos();
+
+  public abstract Integer tempTopeAdecuada();
 
   // public abstract boolean tipoPermite(Enum<Material> material);
 }

@@ -1,4 +1,4 @@
-package Sugerencias;
+package ClimaActual;
 
 import java.util.*;
 
