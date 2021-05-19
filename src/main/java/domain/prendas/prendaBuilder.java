@@ -1,11 +1,11 @@
 package domain.prendas;
 
 public class prendaBuilder {
-  private Enum<TipoPrenda> tipoPrenda;
+  private TipoPrenda tipoPrenda;
   private Color color;
-  private Enum<Material> material;
+  private Material material;
   private Color colorSecundario;
-  private Enum<Trama> trama = Trama.LISA;
+  private Trama trama = Trama.LISA;
 
   public prendaBuilder(TipoPrenda tipoPrenda) {
     this.tipoPrenda = tipoPrenda;
@@ -15,7 +15,7 @@ public class prendaBuilder {
     this.color = color;
   }
 
-  public void setMaterial(Enum<Material> material) {
+  public void setMaterial(Material material) {
     if(tipoPrenda.materialPosible(material)) this.material = material;
 
   }
@@ -24,7 +24,7 @@ public class prendaBuilder {
     this.colorSecundario = colorSecundario;
   }
 
-  public void setTipoTela(Enum<Trama> trama) {
+  public void setTipoTela(Trama trama) {
     this.trama = trama;
   }
 

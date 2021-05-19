@@ -10,17 +10,20 @@ public class ClimaRecienteAccu implements ClimaReciente{
 
 
   public ClimaRecienteAccu(ClimaRecienteAccu climaReciente) {
+    this.apiClima = climaReciente.apiClima;
     this.condicionesClimaticas = climaReciente.condicionesClimaticas;
   }
 
   public ClimaRecienteAccu() {
     apiClima = new AccuWeatherAPI();
+    this.setearClimaBSAS();
     this.actualizarClimaCada12();
   }
 
   private void actualizarClimaCada12() {
     //TODO Algoritmo para que ejecute cada 12 horas y se actualize el clima
     apiClima = new AccuWeatherAPI();
+    this.setearClimaBSAS();
   }
 
   public void setearClimaBSAS() {

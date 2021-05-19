@@ -8,7 +8,7 @@ public class Sugerencia {
 
   //Puede ser que esto este abstraido en un singleton para que cada vez que se haga una sugerencia no se cree
   //un clima Accu que gaste plata
-  private static ClimaReciente climaReciente = new ClimaRecienteAccu();;
+  private static ClimaReciente climaReciente = new ClimaRecienteAccu();
 
   private Prenda parteSuperior;
   private Prenda parteInferior;
@@ -24,6 +24,10 @@ public class Sugerencia {
 
   public Sugerencia() {
   }
+
+  //new sugerenciaInvierno
+  //Sugerencia.devolverrSeguncCLIma(sugerenciaInvierno)
+
 
   public static Sugerencia devolverSugerenciaAlClima(FabricaDeSugerencias sugerenciaProp) {
 

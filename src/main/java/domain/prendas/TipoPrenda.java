@@ -71,17 +71,17 @@ public enum TipoPrenda {
   //Cad una implementa un metodo abstracto que me devuelv la categoria
   public abstract Categoria getCategoria();
 
-  public void materialPosible(Enum<Material> material) {
-      if(!this.materialPosibleSegunTipo(material)) throw new RuntimeException();
-  }
-
-  public boolean materialPosibleSegunTipo(Enum<Material> material) {
-    return this.materialesPermitidos().contains(material);
+  public boolean materialPosible(Enum<Material> material) {
+      return this.materialesPermitidos().contains(material);
   }
 
   protected abstract List<Enum<Material>> materialesPermitidos();
 
   public abstract Integer tempTopeAdecuada();
+
+  public boolean estaDentroDeTempAdecuada(Integer temperatura){
+    return this.tempTopeAdecuada() < temperatura;
+  }
 
   // public abstract boolean tipoPermite(Enum<Material> material);
 }

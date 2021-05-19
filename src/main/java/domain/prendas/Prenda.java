@@ -2,20 +2,20 @@ package domain.prendas;
 
 
 public class Prenda {
-  private Enum<TipoPrenda> tipoPrenda;
+  private TipoPrenda tipoPrenda;
   private Color color;
-  private Enum<Material> material;
+  private Material material;
   private Color colorSecundario;
-  private Enum<Trama> trama;
+  private Trama trama;
 
-  public Prenda(Enum<TipoPrenda> tipoPrenda, Enum<Material> material, Color color,Enum<Trama> trama) {
+  public Prenda(TipoPrenda tipoPrenda, Material material, Color color, Trama trama) {
     this.tipoPrenda = tipoPrenda;
     this.color = color;
     this.material = material;
     this.trama = trama;
   }
 
-  public Prenda(Enum<TipoPrenda> tipoPrenda,Enum<Material> material, Color color, Color colorSecundario,Enum<Trama> trama) {
+  public Prenda(TipoPrenda tipoPrenda,Material material, Color color, Color colorSecundario, Trama trama) {
     this.tipoPrenda = tipoPrenda;
     this.color = color;
     this.material = material;
@@ -23,8 +23,11 @@ public class Prenda {
     this.trama = trama;
   }
 
-  public Enum<Categoria> getCategoria(){
+  public Categoria dameCategoria(){
     return tipoPrenda.getCategoria();
   }
 
+  public boolean esUsableSegunTemp(Integer temperatura) {
+    return tipoPrenda.estaDentroDeTempAdecuada(temperatura);
+  }
 }
