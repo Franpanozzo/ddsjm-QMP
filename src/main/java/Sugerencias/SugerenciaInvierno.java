@@ -4,7 +4,7 @@ import ClimaActual.ClimaReciente;
 import domain.prendas.*;
 
 public class SugerenciaInvierno extends FabricaDeSugerencias {
-  private prendaBuilder borrador;
+  private PrendaBuilder borrador;
   ClimaReciente climaReciente;
 
   public SugerenciaInvierno() {

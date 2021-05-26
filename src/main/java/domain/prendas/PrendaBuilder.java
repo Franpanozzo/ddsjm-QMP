@@ -1,13 +1,13 @@
 package domain.prendas;
 
-public class prendaBuilder {
+public class PrendaBuilder {
   private TipoPrenda tipoPrenda;
   private Color color;
   private Material material;
   private Color colorSecundario;
   private Trama trama = Trama.LISA;
 
-  public prendaBuilder(TipoPrenda tipoPrenda) {
+  public PrendaBuilder(TipoPrenda tipoPrenda) {
     this.tipoPrenda = tipoPrenda;
   }
 
@@ -16,8 +16,8 @@ public class prendaBuilder {
   }
 
   public void setMaterial(Material material) {
-    if(tipoPrenda.materialPosible(material)) this.material = material;
-
+    if(!tipoPrenda.materialPosible(material)) throw new RuntimeException();
+      this.material = material;
   }
 
   public void setColorSecundario(Color colorSecundario) {
@@ -29,7 +29,7 @@ public class prendaBuilder {
   }
 
   public Prenda crearPrenda() {
-    if(color == null){
+    if(colorSecundario == null){
       return new Prenda(tipoPrenda, material, color, trama);
     }
     else return new Prenda(tipoPrenda, material, color, colorSecundario, trama);

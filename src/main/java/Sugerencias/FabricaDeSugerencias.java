@@ -21,28 +21,28 @@ public abstract class FabricaDeSugerencias {
 
   public Prenda sugerirParteSup(){
     this.agregarPartesSuperiores();
-    return partesInferiores.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny();
+    return partesInferiores.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny().get();
   }
 
   protected abstract void agregarPartesSuperiores();
 
   public Prenda sugerirParteInf(){
     this.agregarPartesInferiores();
-    return partesInferiores.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny();
+    return partesInferiores.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny().get();
   }
 
   protected abstract void agregarPartesInferiores();
 
   public Prenda sugerirCalzado(){
     this.agregarCalzados();
-    return calzados.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny();
+    return calzados.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny().get();
   }
 
   protected abstract void agregarCalzados();
 
   public Prenda sugerirAccesorio(){
     this.agregarAccesorios();
-   return accesorios.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny();
+   return accesorios.stream().filter(prenda -> prenda.esUsableSegunTemp(climaReciente.getTemperatura())).findAny().get();
   }
 
   protected abstract void agregarAccesorios();
