@@ -34,6 +34,8 @@ public class AdministradorDePrendas {
     guardarropasPersonales.add(guardarropa);
   }
 
+  //Suponemos que el usuario ya sabe la supuesta propuesta, que esa parte de buscar la propuesta que
+  //quiera aceptar es parte de una abstraccion anterior
   public void aceptarPropuesta(PropuestaDeModif propuesta) {
     propuestasPendientes.remove(propuesta);
     propuesta.modificarGuardarropa();

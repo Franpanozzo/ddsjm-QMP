@@ -3,11 +3,13 @@ package Administracion;
 import Guardarropas.Guardarropa;
 import domain.prendas.Prenda;
 
-public class QuitarPrenda extends PropuestaDeModif{
-
+public class QuitarPrenda implements PropuestaDeModif{
+  Guardarropa guardarropaAModif;
+  Prenda prenda;
 
   public QuitarPrenda(Guardarropa guardarropaAModif, Prenda prenda) {
-    super(guardarropaAModif, prenda);
+    this.guardarropaAModif = guardarropaAModif;
+    this.prenda = prenda;
   }
 
   @Override

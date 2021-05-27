@@ -3,10 +3,13 @@ package Administracion;
 import Guardarropas.Guardarropa;
 import domain.prendas.Prenda;
 
-public class AgregarPrenda extends PropuestaDeModif{
+public class AgregarPrenda implements PropuestaDeModif{
+  Guardarropa guardarropaAModif;
+  Prenda prenda;
 
   public AgregarPrenda(Guardarropa guardarropaAModif, Prenda prenda) {
-    super(guardarropaAModif, prenda);
+    this.guardarropaAModif = guardarropaAModif;
+    this.prenda = prenda;
   }
 
   @Override
