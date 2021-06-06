@@ -20,8 +20,13 @@ public class Usuario {
   Alertas alertas = new Alertas(this);
   String email;
 
-  public void actualizarSugerencia(FabricaDeSugerencias sugerenciaProp) {
-    sugerenciaDiaria = Sugerencia.devolverSugerenciaAlClima(sugerenciaProp);
+  public void actualizarSugerencia(Guardarropa guardarropa) {
+    sugerenciaDiaria = Sugerencia.devolverSugerenciaAlClima(guardarropa);
+  }
+
+  //Podria ser en un futuro que el usuario elija de que guardarropa quiera que le sugieran
+  public Guardarropa guardarropaAleatorio() {
+    return guardarropasPersonales.get(0);
   }
 
   public void actualizarAlertas() {

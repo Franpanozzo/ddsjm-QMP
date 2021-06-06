@@ -2,6 +2,7 @@ package Sugerencias;
 
 import ClimaActual.ClimaReciente;
 import ClimaActual.ClimaRecienteAccu;
+import Guardarropas.Guardarropa;
 import domain.prendas.Prenda;
 
 import java.util.List;
@@ -29,14 +30,14 @@ public class Sugerencia {
   //Sugerencia.devolverrSeguncCLIma(sugerenciaInvierno)
 
 
-  public static Sugerencia devolverSugerenciaAlClima(FabricaDeSugerencias sugerenciaProp) {
+  public static Sugerencia devolverSugerenciaAlClima(Guardarropa guardarropa) {
 
-    sugerenciaProp.climaActual(climaReciente);
+    guardarropa.climaActual(climaReciente);
     return new Sugerencia(
-        sugerenciaProp.sugerirParteSup(),
-        sugerenciaProp.sugerirParteInf(),
-        sugerenciaProp.sugerirCalzado(),
-        sugerenciaProp.sugerirAccesorio()
+        guardarropa.sugerirParteSup(),
+        guardarropa.sugerirParteInf(),
+        guardarropa.sugerirCalzado(),
+        guardarropa.sugerirAccesorio()
     );
   }
 

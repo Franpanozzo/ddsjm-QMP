@@ -83,6 +83,10 @@ public enum TipoPrenda {
     return this.tempTopeAdecuada() < temperatura;
   }
 
+  public boolean esCategoria(Categoria categoria) {
+    return this.getCategoria().equals(categoria);
+  }
+
   // public abstract boolean tipoPermite(Enum<Material> material);
 }
 

@@ -9,6 +9,6 @@ public class SugerenciaDiariaObserver implements AlertaClimaticaObserver {
 
   public void recibirAlertas(Alertas alertas) {
     //Cambiar para guardarropas
-    alertas.getUsuario().actualizarSugerencia(new SugerenciaInvierno());
+    alertas.getUsuario().actualizarSugerencia(alertas.getUsuario().guardarropaAleatorio());
   }
 }

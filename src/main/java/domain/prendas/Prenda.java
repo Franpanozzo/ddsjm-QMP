@@ -30,4 +30,8 @@ public class Prenda {
   public boolean esUsableSegunTemp(Integer temperatura) {
     return tipoPrenda.estaDentroDeTempAdecuada(temperatura);
   }
+
+  public boolean esCategoria(Categoria partesup) {
+    return tipoPrenda.esCategoria(partesup);
+  }
 }

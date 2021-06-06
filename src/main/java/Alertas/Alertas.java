@@ -3,7 +3,6 @@ package Alertas;
 import Administracion.Usuario;
 import Sugerencias.Sugerencia;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Alertas {
@@ -15,16 +14,16 @@ public class Alertas {
     this.usuario = usuario;
   }
 
-  //Externamente se van a agregar las notifiaciones y sucesos que creamos al principio
-  //Y despues el usuario puede usar este metodo para activar despues de desactivar
-  public void agregarObserver(AlertaClimaticaObserver alertaClimaticaObserver){
-    observersAlerta.add(alertaClimaticaObserver);
-  }
-
   public void actualizarAlertas() {
     alertasPublicadas = Sugerencia.getAlertas();
     if(!alertasPublicadas.isEmpty())
       observersAlerta.forEach(observer -> observer.recibirAlertas(this));
+  }
+
+  //Externamente se van a agregar las notifiaciones y sucesos que creamos al principio
+  //Y despues el usuario puede usar este metodo para activar despues de desactivar
+  public void agregarAlertaClimatica(AlertaClimaticaObserver alertaClimaticaObserver){
+    observersAlerta.add(alertaClimaticaObserver);
   }
 
   public void desactivarAlertaClimatica(AlertaClimaticaObserver alertaClimaticaObserver) {
@@ -41,5 +40,9 @@ public class Alertas {
 
   public String mailUsuario() {
     return usuario.getEmail();
+  }
+
+  public boolean tiene(String alerta) {
+    return alertasPublicadas.contains(alerta);
   }
 }
