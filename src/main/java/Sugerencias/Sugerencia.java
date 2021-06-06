@@ -4,10 +4,10 @@ import ClimaActual.ClimaReciente;
 import ClimaActual.ClimaRecienteAccu;
 import domain.prendas.Prenda;
 
+import java.util.List;
+
 public class Sugerencia {
 
-  //Puede ser que esto este abstraido en un singleton para que cada vez que se haga una sugerencia no se cree
-  //un clima Accu que gaste plata
   private static ClimaReciente climaReciente = new ClimaRecienteAccu();
 
   private Prenda parteSuperior;
@@ -31,16 +31,18 @@ public class Sugerencia {
 
   public static Sugerencia devolverSugerenciaAlClima(FabricaDeSugerencias sugerenciaProp) {
 
-    sugerenciaProp.climaActual(climaReciente.clone());
+    sugerenciaProp.climaActual(climaReciente);
     return new Sugerencia(
         sugerenciaProp.sugerirParteSup(),
         sugerenciaProp.sugerirParteInf(),
         sugerenciaProp.sugerirCalzado(),
         sugerenciaProp.sugerirAccesorio()
-    ) {
-    };
+    );
   }
 
+  public static List<String> getAlertas() {
+    return climaReciente.getAlertas();
+  }
 
 }
 

@@ -8,12 +8,6 @@ public class ClimaRecienteAccu implements ClimaReciente{
   AccuWeatherAPI apiClima;
   List<Map<String, Object>> condicionesClimaticas;
 
-
-  public ClimaRecienteAccu(ClimaRecienteAccu climaReciente) {
-    this.apiClima = climaReciente.apiClima;
-    this.condicionesClimaticas = climaReciente.condicionesClimaticas;
-  }
-
   public ClimaRecienteAccu() {
     apiClima = new AccuWeatherAPI();
     this.setearClimaBSAS();
@@ -35,8 +29,9 @@ public class ClimaRecienteAccu implements ClimaReciente{
     return (Integer) condicionesClimaticas.get(0).get("Temperature");
   }
 
-  public ClimaReciente clone() {
-    return new ClimaRecienteAccu(this) {
-    };
+  public List<String> getAlertas() {
+    Map<String, Object> alertas = apiClima.getAlertas("Buenos Aires");
+    return (List<String>) alertas.get("CurrentAlerts");
   }
+
 }

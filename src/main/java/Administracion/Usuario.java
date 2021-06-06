@@ -1,16 +1,33 @@
 package Administracion;
 
-import Exceptions.GuardarropaCompartidoException;
+import Alertas.Alertas;
 import Guardarropas.Guardarropa;
+import Propuestas.AgregarPrenda;
+import Propuestas.PropuestaDeModif;
+import Propuestas.QuitarPrenda;
+import Sugerencias.FabricaDeSugerencias;
+import Sugerencias.Sugerencia;
 import domain.prendas.Prenda;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdministradorDePrendas {
+public class Usuario {
   List<PropuestaDeModif> propuestasPendientes = new ArrayList<>();
   HistorialDeModifs historial;
   List<Guardarropa> guardarropasPersonales = new ArrayList<>();
+  Sugerencia sugerenciaDiaria;
+  Alertas alertas = new Alertas(this);
+  String email;
+
+  public void actualizarSugerencia(FabricaDeSugerencias sugerenciaProp) {
+    sugerenciaDiaria = Sugerencia.devolverSugerenciaAlClima(sugerenciaProp);
+  }
+
+  public void actualizarAlertas() {
+    alertas.actualizarAlertas();
+  }
+
 
   public void propuestaDeAgregar(Prenda prenda, Guardarropa guardarropa) {
     propuestasPendientes.add(new AgregarPrenda(guardarropa, prenda));
@@ -24,10 +41,10 @@ public class AdministradorDePrendas {
     return propuestasPendientes;
   }
 
-  public void crearGuardarropaParaAmbosAdmins(AdministradorDePrendas administradorDePrendas) {
+  public void crearGuardarropaParaAmbosUsuarios(Usuario usuario) {
     Guardarropa guardarropa = new Guardarropa();
     this.agregarGuardarropa(guardarropa);
-    administradorDePrendas.agregarGuardarropa(guardarropa);
+    usuario.agregarGuardarropa(guardarropa);
   }
 
   private void agregarGuardarropa(Guardarropa guardarropa) {
@@ -49,6 +66,10 @@ public class AdministradorDePrendas {
   public void deshacerModificacion() {
     PropuestaDeModif modifABorrar = historial.sacarModificacion();
     modifABorrar.deshacerModif();
+  }
+
+  public String getEmail() {
+    return email;
   }
 
 }

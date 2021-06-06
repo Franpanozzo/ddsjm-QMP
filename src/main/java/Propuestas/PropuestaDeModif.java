@@ -1,4 +1,4 @@
-package Administracion;
+package Propuestas;
 
 import Guardarropas.Guardarropa;
 import domain.prendas.Prenda;

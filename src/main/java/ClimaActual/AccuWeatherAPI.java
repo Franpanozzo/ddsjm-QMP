@@ -4,6 +4,10 @@ import java.util.*;
 
 public final class AccuWeatherAPI {
 
+  Map<String, Object> alertas = new HashMap() {{
+    put("CurrentAlerts", Arrays.asList("STORM","HAIL"));
+  }};
+
   public final List<Map<String, Object>> getWeather(String ciudad) {
     return Arrays.asList(new HashMap<String, Object>(){{
       put("DateTime", "2019-05-03T01:00:00-03:00");
@@ -20,5 +24,9 @@ public final class AccuWeatherAPI {
         put("UnitType", 18);
       }});
     }});
+  }
+
+  public Map<String, Object> getAlertas(String ciudad) {
+    return alertas;
   }
 }

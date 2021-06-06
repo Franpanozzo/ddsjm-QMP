@@ -1,5 +1,7 @@
 package Administracion;
 
+import Propuestas.PropuestaDeModif;
+
 import java.util.ArrayList;
 import java.util.List;
 
