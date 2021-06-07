@@ -7,12 +7,12 @@ import java.util.List;
 
 public class NotificacionGranizoObserver implements AlertaClimaticaObserver{
 
-  public void recibirAlertas(Alertas alertas) {
-    if(this.hayGranizo(alertas))
+  public void recibirAlertas(Usuario usuario, List<String> alertasPublicadas) {
+    if(this.hayGranizo(alertasPublicadas))
       NotificationService.notify("Evite salir del auto o busque un techo, alerta de granizo");
   }
 
-  private boolean hayGranizo(Alertas alertas) {
-    return alertas.tiene("HAIL");
+  private boolean hayGranizo(List<String> alertasPublicadas) {
+    return alertasPublicadas.contains("HAIL");
   }
 }

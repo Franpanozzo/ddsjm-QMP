@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface AlertaClimaticaObserver {
 
-  void recibirAlertas(Alertas alertas);
+  void recibirAlertas(Usuario usuario, List<String> alertasPublicadas);
 
 }

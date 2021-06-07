@@ -1,12 +1,15 @@
 package Alertas;
 
+import Administracion.Usuario;
 import Mail.MailSender;
+
+import java.util.List;
 
 public class MailObserver implements AlertaClimaticaObserver{
   MailSender mailSender;
 
-  public void recibirAlertas(Alertas alertas) {
-    mailSender.send(alertas.mailUsuario(),"Se generaron las siguientes alertas meteorologicas: " +
-        alertas.getAlertasPublicadas());
+  public void recibirAlertas(Usuario usuario, List<String> alertasPublicadas) {
+    mailSender.send(usuario.getEmail(),"Se generaron las siguientes alertas meteorologicas: " +
+        alertasPublicadas.toString());
   }
 }

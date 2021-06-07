@@ -5,7 +5,6 @@ import Guardarropas.Guardarropa;
 import Propuestas.AgregarPrenda;
 import Propuestas.PropuestaDeModif;
 import Propuestas.QuitarPrenda;
-import Sugerencias.FabricaDeSugerencias;
 import Sugerencias.Sugerencia;
 import domain.prendas.Prenda;
 
@@ -17,7 +16,7 @@ public class Usuario {
   HistorialDeModifs historial;
   List<Guardarropa> guardarropasPersonales = new ArrayList<>();
   Sugerencia sugerenciaDiaria;
-  Alertas alertas = new Alertas(this);
+  Alertas alertas = new Alertas();
   String email;
 
   public void actualizarSugerencia(Guardarropa guardarropa) {
@@ -30,7 +29,7 @@ public class Usuario {
   }
 
   public void actualizarAlertas() {
-    alertas.actualizarAlertas();
+    alertas.actualizarAlertas(this);
   }
 
 

@@ -7,22 +7,17 @@ import java.util.List;
 
 public class Alertas {
   List<String> alertasPublicadas;
-  Usuario usuario;
   List<AlertaClimaticaObserver> observersAlerta;
 
-  public Alertas(Usuario usuario) {
-    this.usuario = usuario;
-  }
-
-  public void actualizarAlertas() {
+  public void actualizarAlertas(Usuario usuario) {
     alertasPublicadas = Sugerencia.getAlertas();
-    if(!alertasPublicadas.isEmpty())
-      observersAlerta.forEach(observer -> observer.recibirAlertas(this));
+    if (!alertasPublicadas.isEmpty())
+      observersAlerta.forEach(observer -> observer.recibirAlertas(usuario, alertasPublicadas));
   }
 
   //Externamente se van a agregar las notifiaciones y sucesos que creamos al principio
   //Y despues el usuario puede usar este metodo para activar despues de desactivar
-  public void agregarAlertaClimatica(AlertaClimaticaObserver alertaClimaticaObserver){
+  public void agregarAlertaClimatica(AlertaClimaticaObserver alertaClimaticaObserver) {
     observersAlerta.add(alertaClimaticaObserver);
   }
 
@@ -30,19 +25,4 @@ public class Alertas {
     observersAlerta.remove(alertaClimaticaObserver);
   }
 
-  public List<String> getAlertasPublicadas() {
-    return alertasPublicadas;
-  }
-
-  public Usuario getUsuario() {
-    return usuario;
-  }
-
-  public String mailUsuario() {
-    return usuario.getEmail();
-  }
-
-  public boolean tiene(String alerta) {
-    return alertasPublicadas.contains(alerta);
-  }
 }
