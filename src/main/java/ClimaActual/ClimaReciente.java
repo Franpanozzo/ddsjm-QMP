@@ -9,6 +9,6 @@ public interface ClimaReciente {
 
   public abstract Integer getTemperatura();
 
-  public List<String> getAlertas();
+  public List<String> getAlertas(String ciudad);
 
 }

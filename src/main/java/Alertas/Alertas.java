@@ -10,7 +10,7 @@ public class Alertas {
   List<AlertaClimaticaObserver> observersAlerta;
 
   public void actualizarAlertas(Usuario usuario) {
-    alertasPublicadas = Sugerencia.getAlertas();
+    alertasPublicadas = Sugerencia.getAlertas(usuario.ciudadResidencia());
     if (!alertasPublicadas.isEmpty())
       observersAlerta.forEach(observer -> observer.recibirAlertas(usuario, alertasPublicadas));
   }

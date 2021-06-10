@@ -41,8 +41,8 @@ public class Sugerencia {
     );
   }
 
-  public static List<String> getAlertas() {
-    return climaReciente.getAlertas();
+  public static List<String> getAlertas(String ciudad) {
+    return climaReciente.getAlertas(ciudad);
   }
 
 }

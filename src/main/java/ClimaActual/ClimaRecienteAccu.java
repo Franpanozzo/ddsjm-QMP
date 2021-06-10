@@ -29,8 +29,8 @@ public class ClimaRecienteAccu implements ClimaReciente{
     return (Integer) condicionesClimaticas.get(0).get("Temperature");
   }
 
-  public List<String> getAlertas() {
-    Map<String, Object> alertas = apiClima.getAlertas("Buenos Aires");
+  public List<String> getAlertas(String ciudad) {
+    Map<String, Object> alertas = apiClima.getAlertas(ciudad);
     return (List<String>) alertas.get("CurrentAlerts");
   }
 

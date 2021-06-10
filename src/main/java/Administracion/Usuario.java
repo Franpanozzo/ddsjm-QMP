@@ -18,9 +18,14 @@ public class Usuario {
   Sugerencia sugerenciaDiaria;
   Alertas alertas = new Alertas();
   String email;
+  String ciudadResidencia;
 
-  public void actualizarSugerencia(Guardarropa guardarropa) {
-    sugerenciaDiaria = Sugerencia.devolverSugerenciaAlClima(guardarropa);
+  public String ciudadResidencia() {
+    return ciudadResidencia;
+  }
+
+  public void actualizarSugerencia() {
+    sugerenciaDiaria = Sugerencia.devolverSugerenciaAlClima(this.guardarropaAleatorio());
   }
 
   //Podria ser en un futuro que el usuario elija de que guardarropa quiera que le sugieran
@@ -33,12 +38,8 @@ public class Usuario {
   }
 
 
-  public void propuestaDeAgregar(Prenda prenda, Guardarropa guardarropa) {
-    propuestasPendientes.add(new AgregarPrenda(guardarropa, prenda));
-  }
-
-  public void propuestaDeEliminar(Prenda prenda, Guardarropa guardarropa) {
-    propuestasPendientes.add(new QuitarPrenda(guardarropa, prenda));
+  public void agregarPropuesta(PropuestaDeModif propuestaDeModif) {
+    propuestasPendientes.add(propuestaDeModif);
   }
 
   public List<PropuestaDeModif> verPropuestas() {
