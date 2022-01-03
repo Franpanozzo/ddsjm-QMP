@@ -16,7 +16,7 @@ public class Usuario {
   HistorialDeModifs historial;
   List<Guardarropa> guardarropasPersonales = new ArrayList<>();
   Sugerencia sugerenciaDiaria;
-  Alertas alertas = new Alertas();
+  Alertas alertas;
   String email;
   String ciudadResidencia;
 
